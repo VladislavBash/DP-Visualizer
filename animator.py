@@ -7,7 +7,8 @@ blue_k = 6
 i = 0
 j = 0
 b = 0
-"""Визуализирует алгоритм, где на вход подаётся двумерный массив.
+def Visualization_count(posx=0, posy=0, height=0, len=0):
+    """Визуализирует алгоритм, где на вход подаётся двумерный массив.
 
 Ключевые аргументы:
 posx -- позиция первого 'rect' по оси x (по умолчанию 0)
@@ -15,7 +16,6 @@ posy -- позиция первого 'rect' по оси y (по умолчан�
 height -- кол-во 'rect' в столбце (по умолчанию 0)
 len -- кол-во 'rect' в строке (по умолчанию 0)
 """
-def Visualization_count(posx=0, posy=0, height=0, len=0):
     posx += 100
     posy += 100
     red_k = 6
@@ -28,14 +28,14 @@ def Visualization_count(posx=0, posy=0, height=0, len=0):
             rect = svg.rect(id=j*len+i, x=posx+60*i, y=posy+60*j, height="50", width="50", fill=col, stroke="black", stroke_width="2")
             document['panel'] <= rect
     document['panel'] <= svg.text('elem 2', x=posx+60*i+60, y=posy+60*j+30)
-"""Визуализирует алгоритм, где на вход подаётся одномерный массив.
+def Visualization_str(posx, posy, len):
+    """Визуализирует алгоритм, где на вход подаётся одномерный массив.
 
 Ключевые аргументы:
 posx -- позиция первого 'rect' по оси x (по умолчанию 0)
 posy -- позиция первого 'rect' по оси y (по умолчанию 0)
 len -- кол-во 'rect' в строке (по умолчанию 0)
 """
-def Visualization_str(posx, posy, len):
     posx += 100
     posy += 100
     red_k = 1
@@ -47,18 +47,18 @@ def Visualization_str(posx, posy, len):
         rect = svg.rect(id=j*len+i, x=posx+60*i, y=posy+60*j, height="50", width="50", fill=col, stroke="black", stroke_width="2")
         document['panel'] <= rect
     document['panel'] <= svg.text('elem 2', x=posx+60*i+60, y=posy+60*j+30)
-"""Заполняет поле анализа функции"""
 def config():
+    """Заполняет поле анализа функции"""
     document['coding'] <= txt
 sel1 = document['prog']
 sel2 = document['appr']
 txt = document['in'].value
-"""После выбора значения из списка активирует функциюы.
+def show_selected_1(ev):
+    """После выбора значения из списка активирует функциюы.
 
 Ключевые аргументы:
 ev -- нужен, чтобы работал .bind
 """
-def show_selected_1(ev):
     for option in sel1:
          if option.selected:
              if option.id == 'counting':
@@ -84,12 +84,11 @@ def show_selected_1(ev):
                  txt = txt[-2]
                  Visualization_str(0, 0, int(txt))
 document['prog'].bind("change", show_selected_1)
-"""Визуально выделяет 'rect'.
+def prnty(ev):
+    """Визуально выделяет 'rect'.
 
 Ключевые аргументы:
 ev -- нужен, чтобы работал .bind
 """
-def prnty(ev):
-    pass
-for k in [str(o) for o in range(5)]:
-    document[k].bind("mouseenter", prnty)
+    alert('asdas')
+document["2"].bind("mouseenter", prnty)
