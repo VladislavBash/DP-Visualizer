@@ -1,15 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>DP-Visualization</title>
-<script type="Python" src="/fib.py"></script>
-<script type="Python" src="/0-1 knapsack.py"></script>
-<script type="Python" src="/counting.py"></script>
-<link rel="styleshhet" type="text/css" href="/style.css">
+<title>DP-Visual</title>
+<meta charset="utf-8">
+<script src='/brython.js'></script>
+<script src='/brython_stdlib.js'></script>
+<script src="/fib.py"></script>
+<script src="/ball.py"></script>
+<script src="/counting.py"></script>
+<style>
+  body {
+    text-align: center;
+    margin: 15px;
+  }
+  h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+  }
+  p {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+    text-align: center;
+  }
+  #right_side {
+    float: right;
+    margin-right: 20px;
+  }
+  pre {
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    border-color: black;
+  }
+  option {
+    text-align: center;
+  }
+  input {
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    border-color: black;
+    text-align: left;
+    height: 150px;
+    width: 300px;
+  }
+  #in {
+    margin: 10px;
+    float: left;
+    height: 45px;
+    width: 250px;
+  }
+  #in-text {
+    float: right;
+    height: 45px;
+    width: 180px;
+    color: black;
+  }
+</style>
 </head>
-<body>
-<a href="https://github.com/VladislavBash/DP-Visualizer-on-HTML"><h1>Dynamic Programming Visualization</h1></a>
-<p>This site was created by Vlad Bashara for student, who wants to understand working principles of DP.</p>
+<body onload="brython()">
+  <script type="text/python" src="animator.py"></script>
+  <div>
+  <div>
+  <h1><a href="https://github.com/VladislavBash/DP-Visualizer">DP Visualizer</a></h1>
+  </div>
+  <div>
+    <select id="prog">
+      <option></option>
+      <option id="fib">fib.py</option>
+      <option id="ball">ball.py</option>
+      <option id="counting">counting.py</option>
+    </select>
+  </div>
+  <select id="appr">
+    <option>Iterative</option>
+  </select>
+  </div>
+  <div style='height: 500px;'>
+  <div>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+  width="1000" height="500" style="float: left; border-style:solid;border-width: 2px">
+  <g id="panel">
+  </g>
+</svg>
+</div>
+<div>
+  <form>
+  <input id="in">
+  <h3 id="in-text">Parametres of function</h3>
+  <button id="btn">Update</button>
+</form>
+  <pre style="padding-bottom: 60px; padding-top: 60px; padding-left: 40px; padding-right: 40px;margin: 20px; float:left">
+  <code id='coding' style="border-color: rgb(199, 199, 199);border: 2px; text-align: center"></code></pre> 
+  </div>
+  </div>
+    <div>
+<div>
+<code id="coding">
+</code>
+<div>
+<p id="right_side">
+  This site was created for people, who wants to understand DP
+</p>
+</div>
 </body>
 </html>
